@@ -44,18 +44,28 @@ class EateriesTableViewController: UITableViewController {
         
         return cell
     }
-    
-    func showAlert(index: Int) {
-        let ac = UIAlertController(title: nil , message: "Выберете действие", preferredStyle: .actionSheet)
-        let cancel = UIAlertAction(title: "Отмена", style: .cancel, handler: nil)
-        let call = UIAlertAction(title: "Позвонить +7(900)-789-87-9\(index)", style: .default, handler: nil)
-        ac.addAction(call)
-        ac.addAction(cancel)
-        present(ac, animated: true, completion: nil)
-    }
+
+
  
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        showAlert(index: indexPath.row)
-    
+        let ac = UIAlertController(title: nil , message: "Выберете действие", preferredStyle: .actionSheet)
+        let isVisited = UIAlertAction(title: "Я был здесь", style: .default) { (action) in
+            let cell = tableView.cellForRow(at: indexPath)
+            cell?.accessoryType = .checkmark
+        }
+        let call = UIAlertAction(title: "Позвонить +7(900)-789-87-9\(indexPath.row)", style: .default){
+            (action: UIAlertAction) -> Void in
+            let ac = UIAlertController(title: "Ошибка" , message: "Вызов невозможен", preferredStyle: .alert)
+            let ok = UIAlertAction(title: "OK", style: .default, handler: nil)
+            ac.addAction(ok)
+            self.present(ac, animated: true, completion: nil)
+        }
+        let cancel = UIAlertAction(title: "Отмена", style: .cancel, handler: nil)
+        
+        ac.addAction(isVisited)
+        ac.addAction(call)
+        ac.addAction(cancel)
+        
+        present(ac, animated: true, completion: nil)
     }
 }
