@@ -6,6 +6,8 @@ class EateriesTableViewController: UITableViewController {
     
     let restaurantImages = ["ogonek.jpg", "elu.jpg", "bonsai.jpg", "dastarhan.jpg", "indokitay.jpg", "x.o.jpg", "balkan.jpg", "respublika.jpg", "speakeasy.jpg", "morris.jpg", "istorii.jpg", "klassik.jpg", "love.jpg", "shok.jpg", "bochka.jpg"]
     
+    var restaurantIsVisited = [Bool](repeating: false, count: 15 )
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -41,6 +43,7 @@ class EateriesTableViewController: UITableViewController {
         cell.thumbnailImageView.layer.cornerRadius = 32.5
         cell.thumbnailImageView.clipsToBounds = true // crop the Image by mask (layer)
         cell.nameLabel.text = restaurantNames[indexPath.row]
+        cell.accessoryType = self.restaurantIsVisited[indexPath.row] ? .checkmark : .none
         
         return cell
     }
@@ -49,9 +52,11 @@ class EateriesTableViewController: UITableViewController {
  
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let ac = UIAlertController(title: nil , message: "Выберете действие", preferredStyle: .actionSheet)
-        let isVisited = UIAlertAction(title: "Я был здесь", style: .default) { (action) in
+        let isVisitedTitle = self.restaurantIsVisited[indexPath.row] ? "Я не был здесь" : "Я был здесь"
+        let isVisited = UIAlertAction(title: isVisitedTitle, style: .default) { (action) in
             let cell = tableView.cellForRow(at: indexPath)
-            cell?.accessoryType = .checkmark
+            self.restaurantIsVisited[indexPath.row] = !self.restaurantIsVisited[indexPath.row]
+            cell?.accessoryType = self.restaurantIsVisited[indexPath.row] ? .checkmark : .none
         }
         let call = UIAlertAction(title: "Позвонить +7(900)-789-87-9\(indexPath.row)", style: .default){
             (action: UIAlertAction) -> Void in
@@ -67,5 +72,7 @@ class EateriesTableViewController: UITableViewController {
         ac.addAction(cancel)
         
         present(ac, animated: true, completion: nil)
+        
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
