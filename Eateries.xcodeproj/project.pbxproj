@@ -56,10 +56,10 @@
 		323EEB3A20C687D10089F1D3 /* Eateries */ = {
 			isa = PBXGroup;
 			children = (
-				323EEB4D20C68A2C0089F1D3 /* EateriesTableViewController.swift */,
 				323EEB3B20C687D10089F1D3 /* AppDelegate.swift */,
 				323EEB3F20C687D10089F1D3 /* Main.storyboard */,
 				323EEB4F20C68E960089F1D3 /* EateriesTableViewCell.swift */,
+				323EEB4D20C68A2C0089F1D3 /* EateriesTableViewController.swift */,
 				323EEB4220C687D40089F1D3 /* Assets.xcassets */,
 				323EEB4420C687D40089F1D3 /* LaunchScreen.storyboard */,
 				323EEB4720C687D40089F1D3 /* Info.plist */,
