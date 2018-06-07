@@ -12,8 +12,9 @@ class EateryDetailViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var rateButton: UIButton!
     var restaurant: Restaurant?
-    
+
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.hidesBarsOnSwipe = false
         navigationController?.setNavigationBarHidden(false, animated: true)
@@ -26,6 +27,10 @@ class EateryDetailViewController: UIViewController {
         tableView.estimatedRowHeight = 38
         tableView.rowHeight = UITableViewAutomaticDimension
         
+        rateButton.layer.cornerRadius = 5
+        rateButton.layer.borderWidth = 1
+        rateButton.layer.borderColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        
         imageView.image = UIImage(named: restaurant!.image)
         //цвет таблицы и разделителя
 //        tableView.backgroundColor = #colorLiteral(red: 0.9568627477, green: 0.6588235497, blue: 0.5450980663, alpha: 1)
@@ -34,6 +39,10 @@ class EateryDetailViewController: UIViewController {
         tableView.tableFooterView = UIView(frame: CGRect.zero)
         //отображение в заголовке navigationBar названия ресторана
         title = restaurant!.name
+    }
+    
+    @IBAction func unwind(segue: UIStoryboardSegue) {
+        <#code#>
     }
 
     override func didReceiveMemoryWarning() {
