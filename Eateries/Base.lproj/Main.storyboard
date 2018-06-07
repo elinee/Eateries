@@ -170,7 +170,7 @@
         <!--Navigation Controller-->
         <scene sceneID="yaz-nY-doM">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Yze-Jc-ceC" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" hidesBarsOnSwipe="YES" id="Yze-Jc-ceC" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="NGl-kZ-lXB">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
