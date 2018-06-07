@@ -21,6 +21,11 @@ class EateryDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //высота ячейки
+        tableView.estimatedRowHeight = 38
+        tableView.rowHeight = UITableViewAutomaticDimension
+        
         imageView.image = UIImage(named: restaurant!.image)
         //цвет таблицы и разделителя
 //        tableView.backgroundColor = #colorLiteral(red: 0.9568627477, green: 0.6588235497, blue: 0.5450980663, alpha: 1)

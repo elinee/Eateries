@@ -4,7 +4,7 @@ class EateriesTableViewController: UITableViewController {
 
     var restaurants: [Restaurant] = [
         Restaurant(name: "Ogonёk Grill&Bar", type: "ресторан", location: "Уфа", image: "ogonek.jpg", isVisited: false),
-        Restaurant(name: "Елу", type: "ресторан", location: "Уфа", image: "elu.jpg", isVisited: false),
+        Restaurant(name: "Елу", type: "ресторан", location: "Уфа, проспект Революции, 30б", image: "elu.jpg", isVisited: false),
         Restaurant(name: "Bonsai", type: "ресторан", location: "Уфа", image: "bonsai.jpg", isVisited: false),
         Restaurant(name: "Дастархан", type: "ресторан", location: "Уфа", image: "dastarhan.jpg", isVisited: false),
         Restaurant(name: "Индокитай", type: "ресторан", location: "Уфа", image: "indokitay.jpg", isVisited: false),
@@ -28,6 +28,9 @@ class EateriesTableViewController: UITableViewController {
         super.viewDidLoad()
         // для возвращения назад убираем надпись для кнопки назад
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: nil, style: .plain, target: nil, action: nil)
+        
+        tableView.estimatedRowHeight = 85
+        tableView.rowHeight = UITableViewAutomaticDimension
     }
 
     override func didReceiveMemoryWarning() {
@@ -52,6 +55,9 @@ class EateriesTableViewController: UITableViewController {
         cell.thumbnailImageView.layer.cornerRadius = 32.5
         cell.thumbnailImageView.clipsToBounds = true // crop the Image by mask (layer)
         cell.nameLabel.text = restaurants[indexPath.row].name
+        cell.locationLabel.text = restaurants[indexPath.row].location
+        cell.typeLabel.text  = restaurants[indexPath.row].type
+        
         cell.accessoryType = self.restaurants[indexPath.row].isVisited ? .checkmark : .none
         
         return cell
