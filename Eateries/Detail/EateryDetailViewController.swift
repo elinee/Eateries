@@ -10,6 +10,7 @@ import UIKit
 
 class EateryDetailViewController: UIViewController {
 
+    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var imageView: UIImageView!
     var imageName = ""
     
@@ -35,4 +36,23 @@ class EateryDetailViewController: UIViewController {
     }
     */
 
+}
+
+extension EateryDetailViewController: UITableViewDataSource, UITableViewDelegate {
+ 
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! EateryDetailTableViewCell
+        cell.keyLabel.text = "key text"
+        cell.valueLabel.text = "value text"
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 4
+    }
+    
 }
