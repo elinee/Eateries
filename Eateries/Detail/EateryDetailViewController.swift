@@ -12,11 +12,11 @@ class EateryDetailViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var imageView: UIImageView!
-    var imageName = ""
+    var restaurant: Restaurant?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        imageView.image = UIImage(named: imageName)
+        imageView.image = UIImage(named: restaurant!.image)
         
     }
 
@@ -24,17 +24,6 @@ class EateryDetailViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
 
@@ -46,13 +35,32 @@ extension EateryDetailViewController: UITableViewDataSource, UITableViewDelegate
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! EateryDetailTableViewCell
-        cell.keyLabel.text = "key text"
-        cell.valueLabel.text = "value text"
+        switch indexPath.row {
+        case 0:
+            cell.keyLabel.text = "Название"
+            cell.valueLabel.text = restaurant!.name
+        case 1:
+            cell.keyLabel.text = "Тип"
+            cell.valueLabel.text = restaurant!.type
+        case 2:
+            cell.keyLabel.text = "Адрес"
+            cell.valueLabel.text = restaurant!.location
+        case 3:
+            cell.keyLabel.text = "Я там был"
+            cell.valueLabel.text = restaurant!.isVisited ? "Да" : "Нет"
+        default:
+            break
+        }
+       
         return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 4
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
 }
