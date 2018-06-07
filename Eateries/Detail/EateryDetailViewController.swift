@@ -42,7 +42,6 @@ class EateryDetailViewController: UIViewController {
     }
     
     @IBAction func unwind(segue: UIStoryboardSegue) {
-        <#code#>
     }
 
     override func didReceiveMemoryWarning() {
