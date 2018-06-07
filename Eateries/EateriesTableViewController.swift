@@ -21,6 +21,8 @@ class EateriesTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // для возвращения назад убираем надпись для кнопки назад
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: nil, style: .plain, target: nil, action: nil)
     }
 
     override func didReceiveMemoryWarning() {

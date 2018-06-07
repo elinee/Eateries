@@ -17,7 +17,13 @@ class EateryDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         imageView.image = UIImage(named: restaurant!.image)
-        
+        //цвет таблицы и разделителя
+//        tableView.backgroundColor = #colorLiteral(red: 0.9568627477, green: 0.6588235497, blue: 0.5450980663, alpha: 1)
+//        tableView.separatorColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        //убираем неиспользуемую нижнюю часть талицы
+        tableView.tableFooterView = UIView(frame: CGRect.zero)
+        //отображение в заголовке navigationBar названия ресторана
+        title = restaurant!.name
     }
 
     override func didReceiveMemoryWarning() {
@@ -51,7 +57,7 @@ extension EateryDetailViewController: UITableViewDataSource, UITableViewDelegate
         default:
             break
         }
-       
+        //cell.backgroundColor = UIColor.clear //чтобы цвет таблицы был однородным
         return cell
     }
     
