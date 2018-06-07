@@ -7,6 +7,21 @@ class RateViewController: UIViewController {
     @IBOutlet weak var badButton: UIButton!
     @IBOutlet weak var ratingStackView: UIStackView!
     
+    var restRating: String?
+    
+    @IBAction func rateRestaurant(sender: UIButton){
+        switch sender.tag {
+        case 0:
+            self.restRating = "bad"
+        case 1:
+            self.restRating = "good"
+        case 2:
+            self.restRating = "brilliant"
+        default:
+            break
+        }
+        performSegue(withIdentifier: "unwindSegueToDetailVC", sender: sender))
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

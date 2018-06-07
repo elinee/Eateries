@@ -42,6 +42,9 @@ class EateryDetailViewController: UIViewController {
     }
     
     @IBAction func unwind(segue: UIStoryboardSegue) {
+        guard let sourceVC = segue.source as? RateViewController else {return}
+        guard let rating = sourceVC.restRating else {return}
+        rateButton.setImage(UIImage(named: rating), for: .normal)
     }
 
     override func didReceiveMemoryWarning() {
