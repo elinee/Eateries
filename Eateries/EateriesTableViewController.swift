@@ -98,4 +98,13 @@ class EateriesTableViewController: UITableViewController {
         delete.backgroundColor = #colorLiteral(red: 0.9568627477, green: 0.6588235497, blue: 0.5450980663, alpha: 1)
         return [share, delete]
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "detailSegue" {
+            if let indexPath = tableView.indexPathForSelectedRow {
+                let destVC = segue.destination as! EateryDetailViewController
+                destVC.imageName = restaurantImages[indexPath.row]
+            }
+        }
+    }
 }
