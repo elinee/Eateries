@@ -59,6 +59,13 @@ class EateryDetailViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "mapSegue" {
+            let destVC = segue.destination as! MapViewController
+            destVC.restaurant = self.restaurant
+        }
+    }
 
 }
 
