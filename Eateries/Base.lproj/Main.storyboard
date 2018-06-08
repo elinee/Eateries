@@ -89,6 +89,35 @@
             </objects>
             <point key="canvasLocation" x="924" y="150"/>
         </scene>
+        <!--Map View Controller-->
+        <scene sceneID="Wxo-8C-f8n">
+            <objects>
+                <viewController id="qAN-04-xVE" customClass="MapViewController" customModule="Eateries" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="26a-Ar-dD1">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="2rL-AG-gOO">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="2rL-AG-gOO" firstAttribute="trailing" secondItem="gCg-xP-hIx" secondAttribute="trailing" id="J4b-yi-WbN"/>
+                            <constraint firstItem="2rL-AG-gOO" firstAttribute="top" secondItem="26a-Ar-dD1" secondAttribute="topMargin" id="UsD-f8-tVg"/>
+                            <constraint firstItem="2rL-AG-gOO" firstAttribute="leading" secondItem="gCg-xP-hIx" secondAttribute="leading" id="crw-4i-r65"/>
+                            <constraint firstItem="2rL-AG-gOO" firstAttribute="bottom" secondItem="gCg-xP-hIx" secondAttribute="bottom" id="ycp-Iq-cEO"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="gCg-xP-hIx"/>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="2rL-AG-gOO" id="LOC-AI-9lL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jSd-QI-vnP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1685.5999999999999" y="-585.1574212893554"/>
+        </scene>
         <!--Eatery Detail View Controller-->
         <scene sceneID="Ryk-x9-tup">
             <objects>
@@ -163,11 +192,24 @@
                                     <segue destination="cHS-lI-bK8" kind="showDetail" id="vp8-fA-LG8"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NfA-Ff-y7t">
+                                <rect key="frame" x="317" y="130" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="1U5-uI-0xf"/>
+                                    <constraint firstAttribute="width" secondItem="NfA-Ff-y7t" secondAttribute="height" multiplier="1:1" id="Cay-El-6kI"/>
+                                </constraints>
+                                <state key="normal" image="map"/>
+                                <connections>
+                                    <segue destination="qAN-04-xVE" kind="show" identifier="mapSegue" id="XUh-vl-D3c"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="YpG-u8-Sgx" firstAttribute="trailing" secondItem="x7z-sy-QX9" secondAttribute="trailing" constant="8" id="67j-9H-pjx"/>
+                            <constraint firstItem="NfA-Ff-y7t" firstAttribute="top" secondItem="x7z-sy-QX9" secondAttribute="bottom" constant="8" id="JgT-Qb-82n"/>
                             <constraint firstItem="dQt-sz-VkQ" firstAttribute="leading" secondItem="YpG-u8-Sgx" secondAttribute="leading" id="KdY-D0-mqV"/>
+                            <constraint firstItem="YpG-u8-Sgx" firstAttribute="trailing" secondItem="NfA-Ff-y7t" secondAttribute="trailing" constant="8" id="QMm-R3-UYV"/>
                             <constraint firstItem="dQt-sz-VkQ" firstAttribute="trailing" secondItem="YpG-u8-Sgx" secondAttribute="trailing" id="Qk7-Qq-bBD"/>
                             <constraint firstItem="dQt-sz-VkQ" firstAttribute="top" secondItem="YpG-u8-Sgx" secondAttribute="top" id="Zaw-jC-Z7b"/>
                             <constraint firstItem="x7z-sy-QX9" firstAttribute="top" secondItem="YpG-u8-Sgx" secondAttribute="top" constant="8" id="gE8-9J-2dD"/>
@@ -177,6 +219,7 @@
                     </view>
                     <connections>
                         <outlet property="imageView" destination="XEm-d8-xks" id="vZU-sC-TJJ"/>
+                        <outlet property="mapButton" destination="NfA-Ff-y7t" id="X3Q-IZ-XJj"/>
                         <outlet property="rateButton" destination="x7z-sy-QX9" id="qcO-ic-kqz"/>
                         <outlet property="tableView" destination="dQt-sz-VkQ" id="CCy-Vl-90D"/>
                     </connections>
@@ -296,6 +339,7 @@
         <image name="brilliant" width="85" height="85"/>
         <image name="close" width="50" height="50"/>
         <image name="good" width="85" height="85"/>
+        <image name="map" width="50" height="50"/>
         <image name="rateBackground" width="200" height="286"/>
     </resources>
 </document>

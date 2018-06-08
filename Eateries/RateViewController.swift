@@ -20,7 +20,7 @@ class RateViewController: UIViewController {
         default:
             break
         }
-        performSegue(withIdentifier: "unwindSegueToDetailVC", sender: sender))
+        performSegue(withIdentifier: "unwindSegueToDetailVC", sender: sender)
     }
     
     override func viewDidLoad() {

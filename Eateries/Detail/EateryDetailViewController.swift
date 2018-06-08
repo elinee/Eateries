@@ -13,6 +13,7 @@ class EateryDetailViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var rateButton: UIButton!
+    @IBOutlet weak var mapButton: UIButton!
     var restaurant: Restaurant?
 
     override func viewWillAppear(_ animated: Bool) {
@@ -27,9 +28,16 @@ class EateryDetailViewController: UIViewController {
         tableView.estimatedRowHeight = 38
         tableView.rowHeight = UITableViewAutomaticDimension
         
-        rateButton.layer.cornerRadius = 5
-        rateButton.layer.borderWidth = 1
-        rateButton.layer.borderColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        let buttons = [rateButton, mapButton]
+        for btn in buttons {
+            guard let btn = btn else { break }
+            btn.layer.cornerRadius = 5
+            btn.layer.borderWidth = 1
+            btn.layer.borderColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        }
+        
+        
+        
         
         imageView.image = UIImage(named: restaurant!.image)
         //цвет таблицы и разделителя
