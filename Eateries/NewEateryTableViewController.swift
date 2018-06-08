@@ -1,11 +1,3 @@
-//
-//  NewEateryTableViewController.swift
-//  Eateries
-//
-//  Created by Елена Позднякова on 08.06.2018.
-//  Copyright © 2018 swiftbook. All rights reserved.
-//
-
 import UIKit
 
 class NewEateryTableViewController: UITableViewController {
@@ -36,6 +28,34 @@ class NewEateryTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return 5
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row == 0 {
+            let alertController = UIAlertController(title: "Источник фотографии", message: nil, preferredStyle: .actionSheet)
+            let camera = UIAlertAction(title: "Камера", style: .default) { (action) in
+                self.chooseimagePickerAction(source: .camera)
+            }
+            let photoLib = UIAlertAction(title: "Фото", style: .default) { (action) in
+                self.chooseimagePickerAction(source: .photoLibrary)
+            }
+            let cancel = UIAlertAction(title: "Отмена", style: .cancel, handler: nil)
+            alertController.addAction(camera)
+            alertController.addAction(photoLib)
+            alertController.addAction(cancel)
+            self.present(alertController, animated:  true, completion: nil)
+        }
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    func chooseimagePickerAction(source: UIImagePickerControllerSourceType) {
+        //проверяе, есть ли доступ к камере/фото
+        if UIImagePickerController.isSourceTypeAvailable(source) {
+            let imagePicker = UIImagePickerController()
+            imagePicker.allowsEditing = true
+            imagePicker.sourceType = source
+            self.present(imagePicker, animated: true, completion: nil)
+        }
     }
 
     /*
