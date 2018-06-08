@@ -13,6 +13,7 @@
 		320E107B20C9B80A00FD663B /* RateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 320E107A20C9B80A00FD663B /* RateViewController.swift */; };
 		320E107D20CA6A5400FD663B /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 320E107C20CA6A5400FD663B /* MapViewController.swift */; };
 		320E108020CA6ABF00FD663B /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 320E107F20CA6ABF00FD663B /* MapKit.framework */; };
+		320E108220CA7B0700FD663B /* NewEateryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 320E108120CA7B0700FD663B /* NewEateryTableViewController.swift */; };
 		323EEB3C20C687D10089F1D3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 323EEB3B20C687D10089F1D3 /* AppDelegate.swift */; };
 		323EEB4120C687D10089F1D3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 323EEB3F20C687D10089F1D3 /* Main.storyboard */; };
 		323EEB4320C687D40089F1D3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 323EEB4220C687D40089F1D3 /* Assets.xcassets */; };
@@ -28,6 +29,7 @@
 		320E107A20C9B80A00FD663B /* RateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateViewController.swift; sourceTree = "<group>"; };
 		320E107C20CA6A5400FD663B /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		320E107F20CA6ABF00FD663B /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		320E108120CA7B0700FD663B /* NewEateryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEateryTableViewController.swift; sourceTree = "<group>"; };
 		323EEB3820C687D10089F1D3 /* Eateries.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Eateries.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		323EEB3B20C687D10089F1D3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		323EEB4020C687D10089F1D3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -94,6 +96,7 @@
 				323EEB4F20C68E960089F1D3 /* EateriesTableViewCell.swift */,
 				320E107A20C9B80A00FD663B /* RateViewController.swift */,
 				320E107C20CA6A5400FD663B /* MapViewController.swift */,
+				320E108120CA7B0700FD663B /* NewEateryTableViewController.swift */,
 				320E107920C92B7C00FD663B /* Detail */,
 				323EEB4220C687D40089F1D3 /* Assets.xcassets */,
 				323EEB4420C687D40089F1D3 /* LaunchScreen.storyboard */,
@@ -184,6 +187,7 @@
 				323EEB4E20C68A2C0089F1D3 /* EateriesTableViewController.swift in Sources */,
 				320E107420C9168F00FD663B /* EateryDetailViewController.swift in Sources */,
 				323EEB5020C68E960089F1D3 /* EateriesTableViewCell.swift in Sources */,
+				320E108220CA7B0700FD663B /* NewEateryTableViewController.swift in Sources */,
 				320E107B20C9B80A00FD663B /* RateViewController.swift in Sources */,
 				320E107D20CA6A5400FD663B /* MapViewController.swift in Sources */,
 			);
