@@ -1,7 +1,8 @@
 import UIKit
 
-class NewEateryTableViewController: UITableViewController {
+class NewEateryTableViewController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
+    @IBOutlet weak var imageView: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -30,6 +31,14 @@ class NewEateryTableViewController: UITableViewController {
         return 5
     }
     
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        // подставляем выбранное изображение
+        imageView.image = info[UIImagePickerControllerEditedImage] as? UIImage
+        imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
+        dismiss(animated: true, completion: nil)
+    }
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 0 {
             let alertController = UIAlertController(title: "Источник фотографии", message: nil, preferredStyle: .actionSheet)
@@ -52,6 +61,7 @@ class NewEateryTableViewController: UITableViewController {
         //проверяе, есть ли доступ к камере/фото
         if UIImagePickerController.isSourceTypeAvailable(source) {
             let imagePicker = UIImagePickerController()
+            imagePicker.delegate = self
             imagePicker.allowsEditing = true
             imagePicker.sourceType = source
             self.present(imagePicker, animated: true, completion: nil)
