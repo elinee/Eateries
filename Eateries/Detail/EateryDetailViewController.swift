@@ -39,7 +39,7 @@ class EateryDetailViewController: UIViewController {
         
         
         
-        imageView.image = UIImage(named: restaurant!.image)
+        imageView.image = UIImage(data: restaurant.image! as Data)
         //цвет таблицы и разделителя
 //        tableView.backgroundColor = #colorLiteral(red: 0.9568627477, green: 0.6588235497, blue: 0.5450980663, alpha: 1)
 //        tableView.separatorColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)

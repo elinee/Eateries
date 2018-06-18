@@ -14,7 +14,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         
         // из текстового формата адреса позволяет получить долготу и широту
         let geocoder = CLGeocoder()
-        geocoder.geocodeAddressString(restaurant.location) { (placemarks, error) in
+        geocoder.geocodeAddressString(restaurant.location!) { (placemarks, error) in
             guard error == nil else { return }
             // извлекаем опциональный в массив в другой и выбираем первый элемент
             guard let placemarks = placemarks else { return }
@@ -45,7 +45,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
             annotationView?.canShowCallout = true
         }
         let rightImage = UIImageView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
-        rightImage.image = UIImage(named: restaurant.image)
+        rightImage.image = UIImage(data: restaurant.image! as Data)
         annotationView?.rightCalloutAccessoryView = rightImage
         
         annotationView?.pinTintColor = #colorLiteral(red: 0.2745098174, green: 0.4862745106, blue: 0.1411764771, alpha: 1)
